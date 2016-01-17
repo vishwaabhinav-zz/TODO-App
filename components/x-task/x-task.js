@@ -82,6 +82,7 @@ window.XTask = (function() {
       },
       set: function(done) {
         _done = done;
+        this.bgcolor = '#ddd';
         _setWidth(this);
       }
     });

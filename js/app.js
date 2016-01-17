@@ -15,6 +15,7 @@
     function _handleTaskDrop(e) {
     	var taskData = JSON.parse(e.dataTransfer.getData('text/plain'));
     	_tasks[taskData.id].done = true;
+    	_tasks[taskData.id].bgcolor = '#ddd';
     	_refreshTasks();
     }
 
@@ -22,7 +23,7 @@
     	document.querySelector('.due_tasks_container').innerHTML = '';
     	document.querySelector('.done_tasks_container').innerHTML = '';
         Object.keys(_tasks).map(function(key) {
-            _addTask(key, _tasks[key], false);
+            _addTask(key, _tasks[key]);
         });
 
         localStorage.setItem('todo_tasks', JSON.stringify(_tasks));
@@ -33,15 +34,16 @@
         if (taskStr) {
         	var conf = {
         		'content': taskStr,
-        		'done': false
+        		'done': false,
+        		'bgcolor': _getRandomColor()
         	}
-            _addTask(++_id, conf, true);
+        	_tasks[++_id] = conf;
+            _refreshTasks();
         }
     }
 
-    function _addTask(id, conf, updateTaskList) {
+    function _addTask(id, conf) {
         var taskObj = document.createElement('x-task');
-        taskObj.content = conf.content;
 
         taskObj.setAttribute('data-id', id);
 
@@ -49,25 +51,14 @@
 
         taskObj.addEventListener('dragstart', _handleDragStart);
 
-        taskObj.addEventListener('dragend', _handleDragEnd);
         _getAvailableRow(conf.done).appendChild(taskObj);
+        taskObj.content = conf.content;
+        taskObj.bgcolor = conf.bgcolor;
 
         if(conf.done) {
         	taskObj.setAttribute('done', '');
         	taskObj.removeAttribute('draggable');
         }
-        else {
-        	conf.bgcolor = conf.bgcolor || _getRandomColor()
-        	taskObj.bgcolor = conf.bgcolor;
-        }
-        if (updateTaskList) {
-            _tasks[id] = conf;
-            _refreshTasks();
-        }
-    }
-
-    function _handleDragEnd(e) {
-    	console.log(e.target);
     }
 
     function _handleDragStart(e) {
