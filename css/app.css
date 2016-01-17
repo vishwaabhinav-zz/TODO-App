@@ -1,0 +1,61 @@
+html, body {
+	height: 100%;
+}
+
+.container, .due_tasks_container, .done_tasks_container {
+	height: 100%
+}
+
+.done_tasks_container {
+	padding: 20px;
+	overflow: auto;
+}
+
+.jumbotron {
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.tasks_container {
+	height: 80%;
+	padding: 10px;
+}
+
+.tasks_container .row {
+	margin-bottom: 10px;
+}
+
+.vertical_center {
+	display: flex;
+	align-items: center;
+}
+
+.done_tasks_container {
+	background-color: #eee;
+}
+
+#add_tasks {
+	width: 100%;
+}
+
+.task {
+	position: relative;
+	background-color: #ddd;
+	padding: 10px;
+}
+.task > i {
+	display: none;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+.task:hover > i{
+	display: block;
+}
+
+.done_tasks_container hr {
+	height: 2px;
+	background-color: #aaa;
+	margin-bottom: 5px;
+}

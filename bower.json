@@ -1,0 +1,23 @@
+{
+  "name": "TODO",
+  "authors": [
+    "Abhinav Vishwa(avishwa18@gmail.com)"
+  ],
+  "description": "Simple TODO App",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "bootstrap",
+    "todo",
+    "ember"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

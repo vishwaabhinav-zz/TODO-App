@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TODO App</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="import" href="components/x-task/x-task.html">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h3>TODO App</h3>
+        </div>
+        <hr>
+        <div class="jumbotron">
+            <div class="row vertical_center">
+                <div class="col-md-1">
+                    <h4>Tasks</h4></div>
+                <div class="col-md-3">
+                    <input type="text" id="task_input" style="width:100%">
+                </div>
+                <div class="col-md-1">
+                    <button id="add_tasks">Add</button>
+                </div>
+            </div>
+        </div>
+        <div class="row tasks_container">
+            <div class="col-md-7 due_tasks_container">
+            </div>
+            <div class="col-md-5 done_tasks_container" ondragover="event.preventDefault()">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Tasks done</h4>
+                        <hr style="color:black;">
+                    </div>
+                </div>
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
